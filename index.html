@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Innovation IT 2025</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<style data-purpose="custom-utilities">
+    :root {
+      --bg-dark: #1a1a1a;
+      --neon-lime: #b3ff00;
+      --vibrant-purple: #7b52ff;
+      --light-purple: #9b7bff;
+    }
+    body {
+      background-color: var(--bg-dark);
+      font-family: 'Inter', sans-serif;
+      color: white;
+      margin: 0;
+    }
+    h1, h2, h3, .font-syne { font-family: 'Syne', sans-serif; }
+    .blob-shape-1 { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+    .blob-shape-2 { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+    .blob-shape-3 { border-radius: 50% 50% 20% 80% / 25% 80% 20% 75%; }
+    .blob-shape-4 { border-radius: 40% 60% 60% 40% / 60% 30% 70% 40%; }
+    .speech-bubble-tail-left::after {
+      content: ''; position: absolute; bottom: -15px; left: 20px;
+      border-width: 15px 15px 0 0; border-style: solid;
+      border-color: var(--vibrant-purple) transparent transparent transparent;
+    }
+    .speech-bubble-tail-right::after {
+      content: ''; position: absolute; bottom: -15px; right: 20px;
+      border-width: 15px 0 0 15px; border-style: solid;
+      border-color: var(--neon-lime) transparent transparent transparent;
+    }
+    .text-outline { color: transparent; -webkit-text-stroke: 2px var(--neon-lime); }
+    .text-outline-purple { color: transparent; -webkit-text-stroke: 2px var(--vibrant-purple); }
+    .bg-lime { background-color: var(--neon-lime); }
+    .bg-purple { background-color: var(--vibrant-purple); }
+    .text-lime { color: var(--neon-lime); }
+    .text-purple { color: var(--vibrant-purple); }
+    .shadow-solid-lime { box-shadow: 6px 6px 0px 0px var(--neon-lime); }
+    .shadow-solid-purple { box-shadow: 6px 6px 0px 0px var(--vibrant-purple); }
+    @keyframes float { 0%,100%{transform:translateY(0) rotate(0deg);} 50%{transform:translateY(-20px) rotate(5deg);} }
+    @keyframes float-reverse { 0%,100%{transform:translateY(0) rotate(0deg);} 50%{transform:translateY(20px) rotate(-5deg);} }
+    @keyframes pulse-rotate { 0%{transform:translate(-50%,-50%) scale(1) rotate(0deg);} 50%{transform:translate(-50%,-50%) scale(1.1) rotate(180deg);} 100%{transform:translate(-50%,-50%) scale(1) rotate(360deg);} }
+    @keyframes data-stream { 0%{background-position:0 0;} 100%{background-position:0 100vh;} }
+    .animate-float { animation: float 6s ease-in-out infinite; }
+    .animate-float-delayed { animation: float 8s ease-in-out infinite 2s; }
+    .animate-float-reverse { animation: float-reverse 7s ease-in-out infinite; }
+    .animate-pulse-rotate { animation: pulse-rotate 15s linear infinite; }
+    .data-grid {
+      background-image:
+        linear-gradient(to right, rgba(179,255,0,.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(123,82,255,.05) 1px, transparent 1px);
+      background-size: 40px 40px; animation: data-stream 20s linear infinite;
+    }
+    .card-hover { transition: transform .3s ease, box-shadow .3s ease; }
+    .card-hover:hover { transform: translateY(-5px) scale(1.02) !important; }
+    .hover-glow-purple:hover { box-shadow: 0 0 20px 5px rgba(123,82,255,.4), 6px 6px 0px 0px var(--vibrant-purple); }
+    .hover-glow-lime:hover { box-shadow: 0 0 20px 5px rgba(179,255,0,.4), 6px 6px 0px 0px var(--neon-lime); }
+    /* ---- FIXED-SIZE STAGE, scaled to fit the viewport (no scroll) ---- */
+    html, body { height:100%; }
+    body { display:flex; align-items:center; justify-content:center; height:100vh; margin:0; padding:0; overflow:hidden; }
+    #stage { width:1080px; flex:none; transform-origin:center center; }
+    @media (prefers-reduced-motion: reduce){ *,::before,::after{ animation-duration:.01ms!important; animation-iteration-count:1!important; transition-duration:.01ms!important; } }
+  </style>
+</head>
+<body>
+<div id="stage">
+<!-- Mouse Parallax Background Gradient -->
+<div class="fixed inset-0 pointer-events-none z-[-1] opacity-30" id="parallax-bg">
+<div class="absolute w-[800px] h-[800px] bg-purple rounded-full blur-[150px] -top-40 -left-40 mix-blend-screen"></div>
+<div class="absolute w-[600px] h-[600px] bg-lime rounded-full blur-[150px] bottom-0 right-0 mix-blend-screen"></div>
+</div>
+<!-- Main Container -->
+<main class="relative w-full bg-[#222] rounded-[3rem] overflow-hidden p-12 shadow-2xl border-4 border-purple-900/30">
+<div class="absolute inset-0 data-grid z-0"></div>
+<div class="absolute top-10 left-10 text-lime text-3xl font-syne opacity-50 animate-float z-10">✧</div>
+<div class="absolute bottom-20 right-20 text-purple text-4xl font-syne opacity-50 animate-float-delayed z-10">✦</div>
+<div class="absolute top-40 right-32 w-4 h-4 rounded-full bg-lime opacity-80 animate-float-reverse z-10"></div>
+<div class="absolute bottom-40 left-32 w-6 h-6 blob-shape-2 bg-purple opacity-80 animate-float z-10"></div>
+<div class="absolute top-8 right-8 bg-lime text-[#1a1a1a] text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest z-20 shadow-solid-purple animate-float">System.Init()</div>
+
+<div class="relative z-10 grid grid-cols-12 gap-6">
+<!-- Header -->
+<section class="col-span-12 relative flex flex-col items-center justify-center text-center mt-8 mb-12">
+<div class="absolute -inset-4 bg-purple blob-shape-1 opacity-20 blur-xl animate-pulse-rotate"></div>
+<h1 class="text-8xl font-syne font-extrabold uppercase leading-none tracking-tighter mix-blend-screen relative z-10">
+<span class="block text-white">Innovation</span>
+<span class="block text-outline mt-2 transform -rotate-2">IT 2025</span>
+</h1>
+<div class="mt-8 bg-purple text-white px-8 py-4 rounded-3xl blob-shape-2 relative speech-bubble-tail-left shadow-solid-lime inline-block transform rotate-2 animate-float">
+<p class="font-syne font-bold text-xl uppercase tracking-wider">15-17 Nov '25 <br> <span class="text-lime text-sm">Tech Hub Central</span></p>
+</div>
+</section>
+
+<div class="col-span-1"></div>
+<!-- Left Column -->
+<div class="col-span-5 flex flex-col gap-8 relative z-10">
+<article class="bg-lime text-[#1a1a1a] p-6 rounded-[2rem] blob-shape-3 relative shadow-solid-purple transform -rotate-3 card-hover hover-glow-purple">
+<div class="absolute -top-4 -left-4 bg-purple text-white w-12 h-12 rounded-full flex items-center justify-center font-syne font-bold text-xl border-4 border-[#222]">01</div>
+<h3 class="font-syne font-bold text-2xl uppercase mb-2 mt-4 text-purple">AI &amp; Robotics</h3>
+<p class="text-sm font-semibold opacity-80 leading-tight">Neural networks, autonomous systems, and the future of machine sentience.</p>
+<div class="mt-4 text-purple text-2xl">✦</div>
+</article>
+<article class="bg-purple text-white p-6 rounded-[2.5rem] blob-shape-4 relative speech-bubble-tail-right shadow-solid-lime transform rotate-2 mt-12 card-hover hover-glow-lime">
+<div class="absolute top-4 right-4 text-lime text-xs font-bold border border-lime px-2 py-1 rounded-full">#Decentralize</div>
+<h3 class="font-syne font-bold text-2xl uppercase mb-2 mt-4 text-lime">Web 4.0</h3>
+<p class="text-sm font-semibold opacity-90 leading-tight">Spatial web, semantic interfaces, and distributed ledger technologies.</p>
+<div class="mt-4 text-lime text-2xl">🖳</div>
+</article>
+</div>
+<!-- Right Column -->
+<div class="col-span-5 flex flex-col gap-8 justify-end relative z-10 pb-12">
+<article class="bg-transparent border-4 border-lime text-white p-6 rounded-[3rem] blob-shape-1 relative transform rotate-1 mb-8 card-hover">
+<div class="absolute -top-3 right-8 bg-purple text-lime text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest z-20">New</div>
+<h3 class="font-syne font-bold text-2xl uppercase mb-2 text-lime">Quantum Computing</h3>
+<p class="text-sm font-semibold opacity-80 leading-tight text-gray-300">Qubits, superposition, and breaking computational boundaries.</p>
+<div class="mt-4 flex gap-2">
+<span class="w-3 h-3 rounded-full bg-lime animate-bounce" style="animation-delay:0s"></span>
+<span class="w-3 h-3 rounded-full bg-purple animate-bounce" style="animation-delay:.2s"></span>
+<span class="w-3 h-3 rounded-full bg-white animate-bounce" style="animation-delay:.4s"></span>
+</div>
+</article>
+<article class="bg-lime text-[#1a1a1a] p-6 rounded-[2rem] rounded-bl-[4rem] relative shadow-solid-purple transform -rotate-2 card-hover hover-glow-purple">
+<h3 class="font-syne font-bold text-2xl uppercase mb-2 text-purple">Sustainable Tech</h3>
+<p class="text-sm font-semibold opacity-90 leading-tight">Green energy grids, e-waste reduction, and circular tech economies.</p>
+<div class="absolute bottom-4 right-4 text-purple text-2xl">ꕤ</div>
+</article>
+</div>
+<div class="col-span-1"></div>
+<!-- CTA -->
+<section class="col-span-12 flex justify-center mt-12 mb-2 relative z-20">
+<a class="group relative inline-block animate-float-delayed" href="#">
+<div class="absolute inset-0 bg-lime rounded-full translate-x-2 translate-y-2 group-hover:translate-x-0 group-hover:translate-y-0 transition-transform duration-300"></div>
+<button class="relative bg-purple border-4 border-[#222] text-white font-syne font-bold text-2xl uppercase px-12 py-6 rounded-[50%_50%_40%_60%/60%_40%_50%_50%] hover:rounded-[60%_40%_50%_50%/50%_50%_40%_60%] transition-all duration-500 transform group-hover:-translate-y-2 group-hover:shadow-[0_0_30px_10px_rgba(123,82,255,0.5)]">Get Your Ticket</button>
+<svg class="absolute -top-16 -right-2 w-8 h-8 text-lime animate-spin" fill="currentColor" style="animation-duration:4s;" viewBox="0 0 24 24"><path d="M12 2L15 9L22 12L15 15L12 22L9 15L2 12L9 9L12 2Z"></path></svg>
+</a>
+</section>
+</div>
+</main>
+</div>
+<script>
+  // Scale the fixed-size stage to fit the viewport — no scrolling, no reflow.
+  function fitStage(){
+    var s = document.getElementById('stage');
+    if(!s) return;
+    s.style.transform = 'scale(1)';
+    var w = s.offsetWidth, h = s.offsetHeight;
+    var scale = Math.min((window.innerWidth - 24) / w, (window.innerHeight - 24) / h, 1.2);
+    s.style.transform = 'scale(' + scale + ')';
+  }
+  window.addEventListener('resize', fitStage);
+  window.addEventListener('load', fitStage);
+  document.addEventListener('DOMContentLoaded', () => {
+    fitStage();
+    setTimeout(fitStage, 300);   // re-fit after fonts / Tailwind load
+    setTimeout(fitStage, 1200);
+    const parallaxBg = document.getElementById('parallax-bg');
+    let rafId;
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      document.addEventListener('mousemove', (e) => {
+        if (rafId) cancelAnimationFrame(rafId);
+        rafId = requestAnimationFrame(() => {
+          const mouseX = e.clientX / window.innerWidth - 0.5;
+          const mouseY = e.clientY / window.innerHeight - 0.5;
+          parallaxBg.style.transform = `translate(${mouseX * -50}px, ${mouseY * -50}px)`;
+        });
+      });
+    }
+  });
+</script>
+</body>
+</html>
